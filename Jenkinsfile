@@ -1,10 +1,15 @@
 pipeline {
     agent any
- 
+
+    
     stages {
+        stage('Build'){
+            steps{
+               sh 'mvn clean package'
+            }
         stage('Test') {
             steps {
-                bat "mvn -D clean test"
+                sh "mvn -D clean test"
             }
         }
     }
